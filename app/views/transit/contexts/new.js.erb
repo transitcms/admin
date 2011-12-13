@@ -1,0 +1,5 @@
+<% content = capture do %>
+	<%= manage_delivery_for(resource) %>
+<% end %>
+
+jQuery('#manage_resource_delivery').append("<%= escape_javascript(content) %>");

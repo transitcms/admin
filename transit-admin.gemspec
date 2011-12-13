@@ -21,4 +21,13 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency("transit", ">= 0.0.3")
   s.add_dependency("inherited_resources", "1.3.0")
   s.add_dependency("devise", "1.5.1")
+  
+  s.add_development_dependency('combustion', '~> 0.3.1')
+  s.add_development_dependency("rspec", ">= 2.7.0")
+  s.add_development_dependency("rspec-rails", ">= 2.7.0")
+  s.add_development_dependency("rspec-rails-mocha", ">= 0.3.1")
+  s.add_development_dependency("mocha", ">= 0.10.0")
+  s.add_development_dependency("mongoid-rspec", "~> 1.4.4")
+  s.add_development_dependency("machinist", ">= 2.0.0.beta2")
+  
 end
