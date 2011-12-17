@@ -28,17 +28,18 @@ module TransitAdminHelper
   end
   
   def delivery_template(context, content)
+
+    link_path  = "#"
+    link_attrs = {}
+  
     if context.persisted?
-      resource = context.deliverable
-      content << "\n"
-      content << link_to('Delete', transit_context_path(context, {
-        :deliverable_class => resource.class.name, 
-        :deliverable_id    => resource.id.to_s 
-      }), :class   => 'delete-context-link', 
-          :remote  => true,
-          :method  => :delete)
+      link_path = transit_context_path(context, :deliverable_class => resource.class.name,  :deliverable_id => resource.id.to_s)
+      link_attrs.merge!(:remote  => true, :method => :delete)
     end
     
+    resource = context.deliverable
+    content << "\n"
+    content << link_to('Delete', link_path, :class => 'delete-context-link', :data => { :persisted => context.persisted?.to_s })
     content_tag(:div, content, { 
       :class => "manage-context manage-#{context.class.name.to_s.underscore}-context", 
       :data => { :context_id => context.id.to_s } 
