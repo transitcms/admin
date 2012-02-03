@@ -8,8 +8,6 @@ require 'machinist'
 require 'machinist/mongoid'
 
 Combustion.initialize! :action_controller, :action_view, :sprockets, :action_mailer
-
-ActiveSupport::Dependencies.explicitly_unloadable_constants << "Transit"
 ActiveSupport::Dependencies.log_activity = true
 
 require 'rspec/rails'

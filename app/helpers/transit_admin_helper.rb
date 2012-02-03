@@ -39,7 +39,12 @@ module TransitAdminHelper
     
     resource = context.deliverable
     content << "\n"
-    content << link_to('Delete', link_path, :class => 'delete-context-link', :data => { :persisted => context.persisted?.to_s })
+    content << link_to('Delete', link_path, 
+      :class    => 'delete-context-link', 
+      :method   => :delete, 
+      :remote   => true, 
+      :confirm  => "Are you sure you want to delete this item?",
+      :data     => { :persisted => context.persisted?.to_s })
     content_tag(:div, content, { 
       :class => "manage-context manage-#{context.class.name.to_s.underscore}-context", 
       :data => { :context_id => context.id.to_s } 
