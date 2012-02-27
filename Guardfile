@@ -18,3 +18,5 @@ guard 'rspec', rspec_opts do
   watch('spec/spec_helper.rb')  { "spec" }
   
 end
+
+# guard 'coffeescript', :input => 'lib/assets/javascripts', :output => 'app/assets/javascripts/', :all_on_start => true

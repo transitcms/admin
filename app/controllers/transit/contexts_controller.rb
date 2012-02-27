@@ -1,6 +1,6 @@
 class Transit::ContextsController < AdminController
   before_filter :find_deliverable
-  respond_to :js
+  respond_to :js, :json
   helper_method :parent, :resource
   
   def new
@@ -8,8 +8,7 @@ class Transit::ContextsController < AdminController
     respond_with(@context)
   end
   
-  def destroy
-    @context = parent.contexts.where(:_id => params[:id]).first
+  def destroy    
     @context.destroy
     respond_with(@context)
   end
@@ -19,7 +18,7 @@ class Transit::ContextsController < AdminController
   end
   
   def resource
-    @context
+    @context ||= parent.contexts.where(:_id => params[:id]).first
   end
   
   protected

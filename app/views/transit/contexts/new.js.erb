@@ -1,10 +1,12 @@
 <% content = capture do %>
-	<%= manage_delivery_for(resource) %>
+	<%= fields_for("#{parent.class.name.underscore}[contexts_attributes][#{Time.now.to_i}]") do |c| %>
+	<%= manage_delivery(resource, c) %>
+	<% end %>
 <% end %>
 
 (function(){
 	var count = jQuery('[data-context-id]').length;
-	jQuery('#manage_resource_delivery').append("<%= escape_javascript(content) %>");
+	jQuery('#manage_resource_list').append("<%= escape_javascript(content) %>");
 	jQuery('[data-context-id="<%= resource.id %>"] input[rel=position]').eq(0).val(count + 1);
 })();
 

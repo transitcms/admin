@@ -3,5 +3,4 @@ module Transit
   end
 end
 
-require 'transit/admin/delivery'
 require 'transit/admin/engine'
