@@ -1,0 +1,1 @@
+# class Transit.HeadingText extends Transit.Context

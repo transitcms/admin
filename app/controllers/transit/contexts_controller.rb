@@ -3,6 +3,10 @@ class Transit::ContextsController < AdminController
   respond_to :js, :json
   helper_method :parent, :resource
   
+  def index
+    respond_with(parent.contexts)
+  end
+  
   def new
     @context = parent.contexts.build({}, params[:type].to_s.constantize)
     respond_with(@context)

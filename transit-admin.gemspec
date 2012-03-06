@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = ["dev@kurbmedia.com"]
   s.homepage    = "https://github.com/transitcms/admin"
   s.summary     = %q{Administrative module for the Transit CMS engine}
-  s.description = %q{Adds a default administrative backend for the Transit CMS engine. This functionality is provided separately from the core engine itself for greater developer flexibility.}
+  s.description = %q{Administrative backend for the Transit CME engine, with inline editing via Backbone.js}
 
   s.rubyforge_project = "transit-admin"
 
