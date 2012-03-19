@@ -1,5 +1,0 @@
-<%= f.text_field :body, class: context.node %>
-<% unless context.node.to_s.downcase == "h1" %>
-	<%= f.select :node, options_for_select(context.class.node_types, context.node), {} %>
-	<%= f.hidden_field :position, :rel => "position" %>	
-<% end %>
