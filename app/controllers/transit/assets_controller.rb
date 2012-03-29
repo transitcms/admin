@@ -5,17 +5,17 @@ class Transit::AssetsController < AdminController
   layout false
   
   def index
-    respond_with(parent.contexts)
+    respond_with(parent.assets)
   end
   
   def new
-    @context = parent.assets.build({})
-    respond_with(@context)
+    @asset = parent.assets.build({})
+    respond_with(@asset)
   end
   
   def destroy    
-    @context.destroy
-    respond_with(@context)
+    resource.destroy
+    respond_with(resource)
   end
   
   def parent
@@ -23,7 +23,7 @@ class Transit::AssetsController < AdminController
   end
   
   def resource
-    @context ||= parent.contexts.where(:_id => params[:id]).first
+    @asset ||= parent.assets.where(:_id => params[:id]).first
   end
   
   protected
