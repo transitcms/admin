@@ -1,5 +1,5 @@
 class Transit::AssetsController < AdminController
-  before_filter :find_deliverable
+  before_filter :find_deliverable, only: [:new, :create, :index]
   respond_to :js, :json, :html
   helper_method :parent, :resource
   layout false
@@ -13,7 +13,19 @@ class Transit::AssetsController < AdminController
     respond_with(@asset)
   end
   
+  def create
+    @asset = parent.assets.create(params[:asset])
+    respond_with(@asset)
+  end
+  
+  def update
+    @asset = Asset.find(params[:id])
+    @asset.update_attributes(params[:asset])
+    respond_with(@asset)
+  end
+  
   def destroy    
+    @asset = Asset.find(params[:id])
     resource.destroy
     respond_with(resource)
   end
